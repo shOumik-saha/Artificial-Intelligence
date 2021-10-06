@@ -1,0 +1,26 @@
+def lookup(percepts, lookup):
+    percept = percepts[-1][0] + ' ' + percepts[-1][1]
+    return lookup[percept]
+
+class SimpleTabulerAgen:
+    def __init__(self):
+        
+        self.percepts = []
+        
+        self.table = {
+            
+            'A Clean': 'right',
+            'B Clean': 'left',
+            'A Dirty': 'suck',
+            'B Dirty': 'suck'
+            
+                     }                
+    def table_agent(self, percept):
+        
+        action = True
+        self.percepts.append(percept)
+        action = lookup(self.percepts, self.table)
+        return action
+    
+agent = SimpleTabulerAgen()
+print(agent.table_agent(('A', 'Clean')))
